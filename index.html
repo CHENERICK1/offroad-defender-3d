@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Off-Road Defender 3D</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div id="app">
+      <div id="canvas-container"></div>
+      
+      <!-- UI Overlay -->
+      <div id="ui-layer">
+        <header class="top-bar">
+          <div class="model-info">
+            <h1>Off-Road Defender</h1>
+            <span class="tag">Procedural 3D Concept</span>
+          </div>
+          <div class="controls">
+            <button id="btn-view-front">Front</button>
+            <button id="btn-view-side">Side</button>
+            <button id="btn-view-iso">Isometric</button>
+            <button id="btn-view-ref">Ref Match</button>
+            <button id="btn-auto-rotate" class="active">Auto Rotate</button>
+          </div>
+        </header>
+
+        <div class="side-panel left-panel">
+          <div class="panel-section">
+            <h3>Environment</h3>
+            <div class="control-group">
+              <label>Lighting:</label>
+              <select id="env-select">
+                <option value="studio">Studio (White Light)</option>
+                <option value="dusk">Wilderness (Dusk)</option>
+                <option value="night">Night Mode</option>
+              </select>
+            </div>
+            <div class="control-group">
+              <label class="checkbox-label">
+                <input type="checkbox" id="chk-grid" checked> Show Grid
+              </label>
+            </div>
+          </div>
+          
+          <div class="panel-section">
+            <h3>Assembly</h3>
+            <div class="control-group">
+              <label>Explode View (<span id="explode-val">0</span>%)</label>
+              <input type="range" id="explode-slider" min="0" max="100" value="0" step="1">
+            </div>
+          </div>
+        </div>
+
+        <div class="side-panel right-panel" id="inspector-panel" style="display: none;">
+          <div class="panel-section">
+            <h3>Part Inspector</h3>
+            <div class="part-info">
+              <div class="info-row">
+                <span class="info-label">Name:</span>
+                <span id="part-name" class="info-value">-</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Category:</span>
+                <span id="part-category" class="info-value">-</span>
+              </div>
+              <div class="info-row">
+                <span class="info-label">Info:</span>
+                <span id="part-info" class="info-value">-</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ref-float-window" id="ref-window">
+          <div class="ref-header">
+            <span>Reference Photo</span>
+            <button id="btn-toggle-ref">−</button>
+          </div>
+          <div class="ref-content" id="ref-content">
+            <div class="ref-placeholder">Defender Image Placeholder<br/>(Procedural Target)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
